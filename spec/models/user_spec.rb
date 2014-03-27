@@ -90,6 +90,7 @@ describe User do
 
   describe "when password confirmation is nil" do
   	before { @user.password_confirmation = nil }
+
   	it { should_not be_valid }
   end
 
@@ -123,5 +124,4 @@ describe User do
       @user.reload.email.should == mixed_case_email.downcase
     end
   end
-
 end
