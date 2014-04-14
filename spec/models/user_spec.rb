@@ -145,4 +145,9 @@ describe User do
 
     it { should be_admin }
   end
+
+  describe "cannot set admin property on user" do
+    before { @user.admin = false }
+    it { should_not allow_mass_assignment_of :admin }    
+  end
 end
