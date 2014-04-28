@@ -5,8 +5,8 @@ class MicropostsController < ApplicationController
   before_filter :correct_user, only: :destroy
 
   # put your own credentials here
-  ACCOUNT_SID = 'ACec6c58fed976f6ee496ab92bcf782794'
-  AUTH_TOKEN = '77069e5d6491966ec9095604414e0040'
+  ACCOUNT_SID = ''
+  AUTH_TOKEN = ''
 
   # set up a client to talk to the Twilio REST API
   TWILIO_CLIENT = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
@@ -31,7 +31,7 @@ class MicropostsController < ApplicationController
   def send_sms_message message
     TWILIO_CLIENT.account.messages.create(
         :from => '+15512265607',
-        :to => '+12019180627',
+        :to => '',
         :body => "Here is your PostUp: #{message}"
     )
   end
